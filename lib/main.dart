@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import 'cubs.dart';
+
 void main() {
   runApp(const MyApp());
 }
+void count1(){
 
+}
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -50,7 +54,22 @@ swapIsfirst(){
         title: Center(child: const Text('First Screen of My App')),
       ),
       body: LeftToRight(),
-      
+      floatingActionButton: FloatingActionButton(
+        child: Container(child: GestureDetector(
+            onTap: (){
+              Navigator.push(
+                context, 
+                MaterialPageRoute(builder: (context)=> Prduct()),
+              );
+            },
+            child: Icon(Icons.chevron_right),
+            ),
+            
+        ),
+        onPressed: count1 ,
+        
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterFloat,
     );
     
   }
@@ -125,6 +144,7 @@ class SerthColum extends StatelessWidget {
     ),
     
     
+    
       ],);
   }
 }
@@ -197,6 +217,8 @@ class FirstColum extends StatelessWidget {
             color: Colors.green,
             child: const Center(child: Text('3')),
           ),
+
+          
           
           
         ],) 
