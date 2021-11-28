@@ -26,12 +26,20 @@ class ForScaffold extends StatefulWidget {
 }
 
 class _ForScaffoldState extends State<ForScaffold> {
-  var text = 'My First Project';
   bool isFirstText = false;
   int count=0;
-  void countPlus(){
-    count++;
-  }
+
+swapIsfirst(){
+  setState(() {
+    isFirstText= !isFirstText;
+     if(isFirstText==false){
+      LeftToRight();
+    }
+    else{
+      LeftToRight().swap();
+    }
+  });
+}
 
   @override
   Widget build(BuildContext context) {
@@ -41,18 +49,47 @@ class _ForScaffoldState extends State<ForScaffold> {
         centerTitle: false,
         title: Center(child: const Text('First Screen of My App')),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Row( 
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-     
-           children: [
-            FirstColum(),
-            SecondColum(),
-            SerthColum(),
-          ],),
-      )
+      body: LeftToRight(),
       
+    );
+    
+  }
+}
+
+class LeftToRight extends StatelessWidget {
+  const LeftToRight({
+    Key? key,
+  }) : super(key: key);
+
+  swap(){
+    @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(15.0),
+      child: Row( 
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+     
+         children: [
+          SerthColum(),
+          SecondColum(),
+          FirstColum(),
+        ],),
+    );
+  }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(15.0),
+      child: Row( 
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+     
+         children: [
+          FirstColum(),
+          SecondColum(),
+          SerthColum(),
+        ],),
     );
   }
 }
